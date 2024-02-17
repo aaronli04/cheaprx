@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import styles from './HeaderSection.module.css'
 
 const HeaderSection = () => {
@@ -6,7 +5,7 @@ const HeaderSection = () => {
         <div className={styles.liner}>
             <div className={styles.titleSection}>
                 <div className={styles.title}>
-                    Find the Cheapest Price for Your Medication
+                    Find the lowest price for your prescription
                 </div>
                 <div className={styles.subtitle}>
                     Search across GoodRX, CostPlusDrugs, BlinkHealth, and others in seconds

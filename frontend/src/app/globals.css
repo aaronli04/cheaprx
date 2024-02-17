@@ -8,8 +8,8 @@
   --white: rgb(255, 255, 255);
   --black: rgb(0, 21, 20);
   --black50: rgba(0, 21, 20, 0.5);
-  --sapphire: rgb(3, 83, 164);
-  --lightBlue: rgb(178, 255, 255);
+  --darkBlue: rgb(11, 55, 100);
+  --lightBlue: rgba(178, 255, 255, 0.3);
 
   --primary-glow: conic-gradient(
     from 180deg at 50% 50%,
