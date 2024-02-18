@@ -6,6 +6,7 @@ const parseMedications = (medications: any[]): Medication[] => {
     for (const medication of medications) {
         const parsedMedication: Medication = {
             name: medication.name,
+            supplier: medication.supplier,
             generic: medication.generic,
             link: medication.link,
             price: medication.price,

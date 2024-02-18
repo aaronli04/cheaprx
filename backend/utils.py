@@ -37,7 +37,8 @@ def search_costplusdrugs(file_path, name):
             'price': row['Price'],
             'prescription_needed': bool(row['Prescription Needed'].lower() == 'true'),
             'strength': row['Strength'],
-            'count': row['Count']
+            'count': row['Count'],
+            'supplier': 'CostPlusDrugs'
         }
         medications.append(processed_medication)
 
@@ -79,7 +80,8 @@ def search_blink_health(name):
             'price': price,
             'prescription_needed': prescription_needed,
             'strength': strength,
-            'count': count
+            'count': count,
+            'supplier': 'Blink Health'
         }
 
         return medication

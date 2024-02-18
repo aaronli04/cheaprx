@@ -1,4 +1,5 @@
 export interface Medication {
+    supplier: string;
     name: string;
     generic: string;
     link: string;
