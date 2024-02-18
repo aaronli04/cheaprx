@@ -3,12 +3,15 @@ import React, { useState, useEffect } from 'react'
 import classes from './SearchSection.module.css'
 import { Input } from '@mantine/core'
 import { CiSearch } from "react-icons/ci"
+import useMedications from '../../../hooks/medication/useMedications'
 
 const SearchSection = () => {
+    const { getMedications } = useMedications()
     const [medication, setMedication] = useState('')
 
     useEffect(() => {
         console.log(medication)
+        getMedications(medication)
     })
 
     return (
