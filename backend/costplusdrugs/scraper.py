@@ -32,7 +32,6 @@ def scrape_costplusdrugs():
             print(link)
             prescription_needed, strength, count = extract_secondary_data(link)
 
-
         data['Name'].append(name)
         data['Generic'].append(generic)
         data['Link'].append(link)
