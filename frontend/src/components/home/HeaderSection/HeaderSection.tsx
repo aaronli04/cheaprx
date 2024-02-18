@@ -5,10 +5,15 @@ const HeaderSection = () => {
         <div className={styles.liner}>
             <div className={styles.titleSection}>
                 <div className={styles.title}>
-                    Find the lowest price for your prescription
+                    <div className={styles.titleBlack}>
+                        Cheap
+                    </div>
+                    <div className={styles.titleGreen}>
+                        Rx
+                    </div>
                 </div>
                 <div className={styles.subtitle}>
-                    Search across GoodRX, CostPlusDrugs, BlinkHealth, and others in seconds
+                    Find your cheapest drug.
                 </div>
             </div>
         </div>

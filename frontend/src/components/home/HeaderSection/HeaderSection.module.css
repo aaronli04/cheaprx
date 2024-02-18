@@ -2,13 +2,14 @@
     display: flex;
     flex-direction: column;
     width: 100vw;
-    min-height: 200px;
-    padding: 20px 100px 20px 100px;
+    margin-top: 150px;
+    min-height: 250px;
+    padding: 20px;
     align-items: center;
     justify-content: center;
-    background-color: var(--lightBlue);
 
     @media (max-width: 33.75em) {
+        margin-top: 100px;
         padding: 20px 15px 20px 15px;
     }
 }
@@ -16,28 +17,44 @@
 .titleSection {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    align-items: center;
 }
 
 .title {
-    font-size: 40px;
-    font-weight: 600;
+    display: flex;
+    flex-direction: row;
+    font-family: sans-serif;
+    font-size: 92px;
+    font-weight: 500;
     letter-spacing: -1px;
     color: var(--darkBlue);
     text-align: center;
     flex-wrap: wrap;
-    line-height: 50px;
+    line-height: 120px;
+
+    .titleBlack {
+        color: var(--black);
+    }
+
+    .titleGreen {
+        color: var(--green);
+    }
 
     @media (max-width: 33.75em) {
-        font-size: 46px;
+        font-size: 80px;
     }
 }
 
 .subtitle {
     color: var(--black);
-    font-size: 24px;
-    font-weight: 500;
+    font-size: 36px;
+    line-height: 40px;
+    font-weight: 300;
     text-align: center;
     flex-wrap: wrap;
-    letter-spacing: -0.5px;
+    letter-spacing: -1px;
+
+    @media (max-width: 33.75em) {
+        font-size: 30px;
+    }
 }
