@@ -1,0 +1,72 @@
+.liner {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    height: 260px;
+    width: 350px;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.imageWrapper {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    height: 80px;
+}
+
+.tag {
+    background-color: var(--blue40);
+    height: 20px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--sapphire);
+    text-align: center;
+    width: 85px;
+    border-radius: 7px;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.position {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 22px;
+}
+
+.company {
+    font-size: 14px;
+}
+
+.buttonSection {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.interviewButton {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    color: var(--white);
+    background-color: var(--sapphire80);
+    font-weight: 600;
+    height: 35px;
+    width: 140px;
+    border-radius: 2px;
+}

@@ -5,6 +5,7 @@ import { Input, Button } from '@mantine/core'
 import { CiSearch } from "react-icons/ci"
 import { Medication } from '@/utils/types/medication'
 import useMedications from '../../../hooks/medication/useMedications'
+import ResultCard from '../ResultCard/ResultCard'
 
 const SearchSection = () => {
     const { getMedications } = useMedications()
@@ -58,7 +59,7 @@ const SearchSection = () => {
             <div className={classes.resultsSection}>
                 {medications.map((medicationItem, index) => (
                     <div key={index}>
-                        {medicationItem.name}
+                        <ResultCard {...medicationItem} />
                     </div>
                 ))}
             </div>
