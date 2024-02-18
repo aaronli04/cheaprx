@@ -7,10 +7,10 @@ CORS(app)
 
 @app.route('/api/medication', methods=['POST'])
 def get_data():
-    medications = []
 
     if request.method == 'POST':
         try:
+            medications = []
             request_data = request.get_json()
             medication_name = request_data.get('name')
 
@@ -18,11 +18,13 @@ def get_data():
             medications = medications + costplusdrugs
 
             blink_health = search_blink_health(medication_name)
-            medications.append(blink_health)
+            if blink_health:
+                medications.append(blink_health)
 
+            medications = sorted(medications, key=lambda x: float(x.get(('price'), float('inf'))))
             result = {'medications': medications}
 
-            return jsonify(result), 200
+            return jsonify(result)
         except Exception as e:
             return jsonify({'error': str(e)}), 400
 

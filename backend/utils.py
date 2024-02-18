@@ -35,7 +35,7 @@ def search_costplusdrugs(file_path, name):
             'generic': row['Generic'],
             'link': row['Link'],
             'price': row['Price'],
-            'prescription_needed': row['Prescription Needed'],
+            'prescription_needed': bool(row['Prescription Needed'].lower() == 'true'),
             'strength': row['Strength'],
             'count': row['Count']
         }
@@ -45,38 +45,43 @@ def search_costplusdrugs(file_path, name):
 
 # Scrape Blink Health
 def search_blink_health(name):
-    price = ''
-    strength = ''
-    count = ''
-    prescription_needed = False
-
     link = 'https://www.blinkhealth.com/' + name
     soup = extract_soup_with_selenium(link)
 
     price_elem = soup.find('div', class_="text_Text_title4-blinkui__5v9KW text_interstate-regular__6jvdM text_interstate-regular__6jvdM text_Text_align-right__YLNqY")
-    price = price_elem.text.strip().replace('$', '').replace(',', '')
-
     size_elem = soup.find('div', class_="input_input__fT6hC px-sm-16 py-sm-12")
-    parts = [part.strip() for part in size_elem.text.split(',')]
-    for part in parts:
-        if "mg" in part:
-            strength = part.lower()
-        elif any(char.isdigit() for char in part):
-            count = part.lower()
+    prescription_elem = soup.find_all('span', class_='text_Text_headline-blinkui__XtU_c text_interstate-regular__6jvdM text_interstate-regular__6jvdM')
 
-    prescription_elem = soup.find('span', class_='text_Text_headline-blinkui__XtU_c text_interstate-regular__6jvdM text_interstate-regular__6jvdM')
-    prescription_status = prescription_elem.text.strip().lower()
-    if prescription_status == 'prescription required':
-        prescription_needed = True
+    if (price_elem and size_elem and prescription_elem):
+        price = ''
+        prescription_needed = False
+        strength = ''
+        count = ''
 
-    medication = {
-        'name': name,
-        'generic': '',
-        'link': link,
-        'price': price,
-        'prescription_needed': prescription_needed,
-        'strength': strength,
-        'count': count
-    }
+        price = price_elem.text.strip().replace('$', '').replace(',', '')
 
-    return medication
+        parts = [part.strip() for part in size_elem.text.split(',')]
+        for part in parts:
+            if "mg" in part:
+                strength = part.lower()
+            elif any(char.isdigit() for char in part):
+                count = part.lower()
+
+        for elem in prescription_elem:
+            prescription_status = elem.text.strip().lower()
+            if prescription_status == 'prescription required':
+                prescription_needed = True
+
+        medication = {
+            'name': name,
+            'generic': '',
+            'link': link,
+            'price': price,
+            'prescription_needed': prescription_needed,
+            'strength': strength,
+            'count': count
+        }
+
+        return medication
+    
+    return None
